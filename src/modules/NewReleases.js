@@ -1,0 +1,37 @@
+//When the component is called it will be displayed on screen 
+import Books from "./Books";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const NewReleases = () => {
+  //manages data in the class
+  //useState returns the current state and the function to update it 
+  const [books,setBooks] = useState([]);
+  
+  //Defines and manages the Reload function, which fetches updated movie data from the server and updates the state
+  const Reload = () => {
+    axios.get('http://localhost:4000/api/books')
+        .then((response) => {
+            console.log("Books fetched:", response.data.books); 
+            setBooks(response.data.books || []);
+        })
+        .catch((error) => {
+            console.error("Error reloading data:", error);
+            setBooks([]); 
+        });
+};
+    
+    //the page is constantly reloading 
+    useEffect(() => {
+      Reload();
+    }, []);
+      
+
+    return (
+    <div>
+       <Books myBooks={books} ReloadData={Reload} />
+    </div>
+    );
+};
+  
+  export default NewReleases;
