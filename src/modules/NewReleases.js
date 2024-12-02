@@ -8,12 +8,12 @@ const NewReleases = () => {
   //useState returns the current state and the function to update it 
   const [books,setBooks] = useState([]);
   
-  //Defines and manages the Reload function, which fetches updated movie data from the server and updates the state
+  //defines and manages the Reload function, which fetches updated movie data from the server and updates the state
   const Reload = () => {
     axios.get('http://localhost:4000/api/books')
         .then((response) => {
-            console.log("Books fetched:", response.data.books); 
-            setBooks(response.data.books || []);
+            console.log("Books fetched:"); 
+            setBooks(response.data);
         })
         .catch((error) => {
             console.error("Error reloading data:", error);
