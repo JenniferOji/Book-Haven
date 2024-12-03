@@ -50,15 +50,30 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
 
   //method to add eviews 
  app.post('/api/reviews', async (req, res)=>{
+    console.log("Book review title: " +req.body.title);
+    //variables being pulled out of request 
+    const { title, review, rating } = req.body;
 
-  const { title, review, rating } = req.body;
- 
-  const newReview = new ReviewModel({ title, review, rating
-   });
-  await newReview.save();
- 
-  res.status(201).json({ message: 'Review created successfully', Review: newReview});
-  })
+    //putting it into the bookmodel database 
+    const newReview = new ReviewModel({ title, review, rating});
+    await newReview.save();
+  
+    res.status(201).json({ message: 'Review created successfully', review: newReview});
+})
+
+
+//   //when there is a request on api/movies it executes this function 
+// app.post('/api/reviews', async(req, res) =>{
+//   console.log("Book review title: " +req.body.title);
+//   //variables being pulled out of request 
+//   const {title, review, rating} = req.body;
+  
+//   //putting it into the moviemodel database 
+//   const newReview = new BookModel({title, review, rating});
+//   await newReview.save();
+
+//   res.status(201).json({ message: 'Review created successfully', review: newReview });
+// })
 
   //fetching all the book records 
   app.get('/api/books', async (req, res) => {

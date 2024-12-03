@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Reviews from "./Reviews";
+import AddReview from "./AddReview";
 
 const ReviewPage = () => {
   //manages data in the class
@@ -28,7 +29,8 @@ const ReviewPage = () => {
 
     return (
     <div>
-       <Reviews myReviews={reviews} ReloadData={Reload} />
+      <Reviews myReviews={reviews} ReloadData={Reload} />
+      <AddReview></AddReview>
     </div>
     );
 };

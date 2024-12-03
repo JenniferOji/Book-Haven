@@ -30,6 +30,7 @@ const stars = (rating) =>{
 
     }
 }
+
 //displaying the items of the array 
 //using card is decorative and makes the page look better 
 const handleDelete = (e)=>{
@@ -62,7 +63,7 @@ const handleSubmit = (e) => {
         //allows the two divs to be displayed in the same row 
         <div class="d-flex flex-row justify-content-start align-items">
             <div class="col-10 mb-3">
-                <div class="card" style={{ height: "12rem", marginLeft:15, marginTop:10}}>
+                <div class="card" style={{ height: "12rem", marginLeft:15, marginTop:5}}>
                     <h5 class="card-header">{props.myReview.title}</h5> 
                     <div class="card-body d-flex align-items-center">
                     {/* this container displays the description of the book - theres a scroll wheel in order to view the full description */}
@@ -91,7 +92,6 @@ const handleSubmit = (e) => {
                 </div>
             </div>
         </div>
-
     )
 }
 

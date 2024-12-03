@@ -12,6 +12,7 @@ const Navigation = () => {
             <Nav className="me-auto">
               <Nav.Link href="/NewReleases">NewRelease</Nav.Link>
               <Nav.Link href="/ReviewPage">My Reviews</Nav.Link>
+              {/* <Nav.Link href="/AddReview">Add Reviews</Nav.Link> */}
             </Nav>
           </Container>
       </Navbar>
