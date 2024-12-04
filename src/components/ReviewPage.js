@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Reviews from "./Reviews";
-import AddReview from "./AddReview";
-
+// import AddReview from "./AddReview";
+// import AddReview from "./AddReview";
+import NewReview from "./NewReview";
 const ReviewPage = () => {
   //manages data in the class
   //useState returns the current state and the function to update it 
@@ -30,7 +31,8 @@ const ReviewPage = () => {
     return (
     <div>
       <Reviews myReviews={reviews} ReloadData={Reload} />
-      <AddReview></AddReview>
+      {/* <AddReview></AddReview> */}
+      <NewReview></NewReview>
     </div>
     );
 };

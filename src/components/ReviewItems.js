@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 //how all the reviews are displayed
 const ReviewItems = (props) => {
 
@@ -61,27 +62,29 @@ const handleSubmit = (e) => {
   }
     return(
         //allows the two divs to be displayed in the same row 
-        <div class="d-flex flex-row justify-content-start align-items">
-            <div class="col-10 mb-3">
-                <div class="card" style={{ height: "12rem", marginLeft:15, marginTop:5}}>
-                    <h5 class="card-header">{props.myReview.title}</h5> 
-                    <div class="card-body d-flex align-items-center">
+        <div className="d-flex flex-row justify-content-start align-items">
+            <div className="col-10 mb-3">
+                <div className="card" style={{ height: "12rem", marginLeft:15, marginTop:5}}>
+                    <h5 className="card-header">{props.myReview.title}</h5> 
+                    <div className="card-body d-flex align-items-center">
                     {/* this container displays the description of the book - theres a scroll wheel in order to view the full description */}
-                        <div class="text-container"  style={{overflowY: "auto",flex: 1,position: "relative",}}>
+                        <div className="text-container"  style={{overflowY: "auto",flex: 1,position: "relative",}}>
                             <p  style={{padding: 8,height: "240px",lineHeight: "1.2",}}>
                                 {props.myReview.review}
                             </p>
                         </div>
     
-                        <a class="btn btn-primary" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Edit</a>
-                        <a class="btn btn-danger" onClick={handleDelete} style={{position: "absolute",left: 150,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Delete</a>
+                        {/* <Link className="btn btn-primary"  style={{position: "absolute",left: 15,width: "10%",bottom: 6,height: "30px",lineHeight: "10px"}} to={"/EditReview/" +props.myReview._id }>Edit</Link> */}
+
+                        <a className="btn btn-primary" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Edit</a>
+                        <a className="btn btn-danger" onClick={handleDelete} style={{position: "absolute",left: 150,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Delete</a>
 
                     </div>
                 </div>
             </div>
 
             <div class="col-2 mb-3">
-                <div class="card" style={{ height: "12rem", marginLeft:15, marginRight: 15, marginTop:10}}>
+                <div class="card" style={{ height: "12rem", marginLeft:15, marginRight: 15, marginTop:5}}>
                     <h5 class="card-header">Rating : {props.myReview.rating}</h5> 
                     <div class="card-body d-flex align-items-center">
                     <div className="text-container d-flex justify-content-center" style={{ flex: 1 }}>

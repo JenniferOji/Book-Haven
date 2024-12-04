@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 //creating a form that will send data to the create
-function AddReview() {
+function NewReview() {
   //created a state variavle and a method to update it
   //the initial value of title will be an empty string
   const [Title, setTitle] = useState('');
@@ -45,7 +45,9 @@ function AddReview() {
         <div>
         <label>Add Book Review: </label>
           <input type="text"
+            //styling from bootstrap
             className="form-control"
+            // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
             value={Review}
             onChange={(e) => { setReview(e.target.value) }}
           />
@@ -57,7 +59,9 @@ function AddReview() {
         <div>
         <label>Add rating: </label>
           <input type="text"
+            //styling from bootstrap
             className="form-control"
+            // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
             value={Rating}
             onChange={(e) => { setRating(e.target.value) }}
           />
@@ -72,4 +76,4 @@ function AddReview() {
   );
 }
 
-export default AddReview;
+export default NewReview;

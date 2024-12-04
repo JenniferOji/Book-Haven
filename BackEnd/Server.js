@@ -22,11 +22,10 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
 
   //whagt the collections in the mongo db hold
   const bookSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    cover: String
+      title: String,
+      description: String,
+      cover: String
   });
-
   const reviewSchema = new mongoose.Schema({
     title: String,
     review: String,
@@ -34,31 +33,29 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
   });
  
   //the collections in the mongo db
- const BookModel = mongoose.model('Book', bookSchema);
- const ReviewModel = mongoose.model('Review', reviewSchema);
+  const BookModel = mongoose.model('Book', bookSchema);
+  const ReviewModel = mongoose.model('Review', reviewSchema);
 
- //method to add books 
- app.post('/api/books', async (req, res)=>{
-
+//method to add books 
+app.post('/api/books', async (req, res)=>{
   const { title, description, cover } = req.body;
- 
   const newBook = new BookModel({ title, description, cover });
   await newBook.save();
  
   res.status(201).json({ message: 'Book created successfully', Book: newBook});
-  })
+})
 
-  //method to add eviews 
- app.post('/api/reviews', async (req, res)=>{
-    console.log("Book review title: " +req.body.title);
-    //variables being pulled out of request 
+//adding the newly made review onto the review page 
+app.post('/api/reviews', async (req, res)=>{
+  console.log("Book review title: " +req.body.title);
+  //variables being pulled out of request 
     const { title, review, rating } = req.body;
 
-    //putting it into the bookmodel database 
-    const newReview = new ReviewModel({ title, review, rating});
-    await newReview.save();
+  //putting it into the bookmodel database 
+  const newReview = new ReviewModel({ title, review, rating});
+  await newReview.save();
   
-    res.status(201).json({ message: 'Review created successfully', review: newReview});
+  res.status(201).json({ message: 'Review created successfully', review: newReview});
 })
 
 
@@ -75,35 +72,49 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
 //   res.status(201).json({ message: 'Review created successfully', review: newReview });
 // })
 
-  //fetching all the book records 
+//fetching all the book records 
   app.get('/api/books', async (req, res) => {
-    const Books = await BookModel.find({});
-    res.json(Books);
-  });
+  const Books = await BookModel.find({});
+  res.json(Books);
+});
 
-    //fetching all the review records 
-    app.get('/api/reviews', async (req, res) => {
-      let Reviews = await ReviewModel.find({});
-      if (!Reviews.length) {
-        Reviews = [
-          { title: 'Sample Review', review: 'Great!', rating: '5' },
-        ];
-      }
-      res.json(Reviews);
-    });
+//fetching all the review records 
+app.get('/api/reviews', async (req, res) => {
+  let Reviews = await ReviewModel.find({});
+  res.json(Reviews);
+});
     
 
-  //retrieving a specfic by its id 
-  app.get('/api/books/:id', async (req, res) => {
-    const Books = await BookModel.findById(req.params.id);
-    res.send(Books);
-  });
+//retrieving a specfic by its id 
+app.get('/api/books/:id', async (req, res) => {
+  const Books = await BookModel.findById(req.params.id);
+  res.send(Books);
+});
 
+//when gettign a post to add a book 
 app.post('/api/books',(req, res)=>{
     console.log(req.body.title);
     res.send("Book Added!");
 })
 
+//the server handling the delete request on a review 
+app.delete('/api/reviews/:id', async (req, res) => {
+  
+  console.log('Deleting review with ID:', req.params.id);
+  //deleting the movie by the ID
+  const review = await ReviewModel.findByIdAndDelete(req.params.id);
+  res.status(200).send({ message: "Review deleted successfully", review });
+  
+});
+
+
+//the server handling the edit request on review 
+app.put('/api/reviews/:id', async (req, res) => { //async = dont proceed until the next line until youve edited the record in the database 
+  //find the movie by its ID and update it 
+  //pull the request out of the body and overright it 
+  let review = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.send(review);//send it back the new movie 
+});
 
 // app.get('/api/reviews', (req, res) => {
 //     const reviews = [

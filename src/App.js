@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import NewReleases from './components/NewReleases';
 import ReviewPage from './components/ReviewPage';
-import AddReview from './components/AddReview';
 
 //using "/" to direct to the desired change 
 function App() {
