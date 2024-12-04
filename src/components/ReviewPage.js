@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Reviews from "./Reviews";
-// import AddReview from "./AddReview";
-// import AddReview from "./AddReview";
 import NewReview from "./NewReview";
+import { Button } from "bootstrap";
+
 const ReviewPage = () => {
   //manages data in the class
   //useState returns the current state and the function to update it 
@@ -30,9 +30,11 @@ const ReviewPage = () => {
 
     return (
     <div>
+      <a href="/newReview"><button className="btn btn-warning" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> Add Review</button></a>
       <Reviews myReviews={reviews} ReloadData={Reload} />
-      {/* <AddReview></AddReview> */}
-      <NewReview></NewReview>
+      {/* <div id="here">
+      <NewReview ></NewReview>
+      </div> */}
     </div>
     );
 };

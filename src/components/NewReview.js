@@ -28,50 +28,46 @@ function NewReview() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Add Book Title: </label>
-          <input type="text"
-            //styling from bootstrap
-            className="form-control"
-            // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
-            value={Title}
-            onChange={(e) => { setTitle(e.target.value) }}
-          />
+            <div>
+                <label>Add Book Title: </label>
+                <input type="text"
+                    //styling from bootstrap
+                    className="form-control"
+                    // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
+                    value={Title}
+                    onChange={(e) => { setTitle(e.target.value) }}
+                />
+            </div>
         </div>
         <div>
             <label></label>
         </div>
-        <div>
-        <label>Add Book Review: </label>
-          <input type="text"
-            //styling from bootstrap
-            className="form-control"
-            // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
-            value={Review}
-            onChange={(e) => { setReview(e.target.value) }}
-          />
-        </div>
+            <div>
+                <label>Add Book Review: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={Review}
+                        onChange={(e) => { setReview(e.target.value) }}
+                    />
+            </div>
         <div>
             <label></label>
         </div>
-        
-        <div>
-        <label>Add rating: </label>
-          <input type="text"
-            //styling from bootstrap
-            className="form-control"
-            // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
-            value={Rating}
-            onChange={(e) => { setRating(e.target.value) }}
-          />
-        </div>
-
+            <div>
+                <label>Add rating: </label>
+                <input type="text"
+                    className="form-control"
+                    value={Rating}
+                    onChange={(e) => { setRating(e.target.value) }}
+                />
+            </div>
         <div>
             <label></label>
         </div>
         <input type="submit" value="Add Review" />
-      </form>
+    </form>
     </div>
   );
 }
