@@ -20,7 +20,7 @@ function NewReview() {
       rating: Rating
     };
     
-    //posting the new review onto the review page
+    //posting the new review onto the review page to handle it
     axios.post('http://localhost:4000/api/reviews', review)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.data));

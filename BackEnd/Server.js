@@ -21,20 +21,31 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB');
 
   //whagt the collections in the mongo db hold
+  //the schema that holds the books that will be displayed on the new releases page 
   const bookSchema = new mongoose.Schema({
       title: String,
       description: String,
       cover: String
   });
+
+  //the schema that holds the reviews that are displayed on the reviewpage
   const reviewSchema = new mongoose.Schema({
-    title: String,
-    review: String,
-    rating: String
+      title: String,
+      review: String,
+      rating: String
+  });
+
+  const favouritesSchema = new mongoose.Schema({
+      title: String,
+      description: String,
+      cover: String
   });
  
   //the collections in the mongo db
   const BookModel = mongoose.model('Book', bookSchema);
   const ReviewModel = mongoose.model('Review', reviewSchema);
+  const FavouritesModel = mongoose.model('Favourite', favouritesSchema);
+
 
 //method to add books 
 app.post('/api/books', async (req, res)=>{
@@ -45,32 +56,29 @@ app.post('/api/books', async (req, res)=>{
   res.status(201).json({ message: 'Book created successfully', Book: newBook});
 })
 
-//adding the newly made review onto the review page 
+//adding the newly made review onto the reviews page 
 app.post('/api/reviews', async (req, res)=>{
   console.log("Book review title: " +req.body.title);
   //variables being pulled out of request 
     const { title, review, rating } = req.body;
-
   //putting it into the bookmodel database 
   const newReview = new ReviewModel({ title, review, rating});
   await newReview.save();
   
-  res.status(201).json({ message: 'Review created successfully', review: newReview});
+  res.status(201).json({ message: 'Review created successfully', Review: newReview});
 })
 
-
-//   //when there is a request on api/movies it executes this function 
-// app.post('/api/reviews', async(req, res) =>{
-//   console.log("Book review title: " +req.body.title);
-//   //variables being pulled out of request 
-//   const {title, review, rating} = req.body;
+//adding the book onto the users favourites page 
+app.post('/api/favourites', async (req, res)=>{
+  console.log("Favourties title: " +req.body.title);
+  //variables being pulled out of request 
+    const { title, description, cover } = req.body;
+  //putting it into the bookmodel database 
+  const newFavourite = new FavouritesModel({ title, description, cover});
+  await newFavourite.save();
   
-//   //putting it into the moviemodel database 
-//   const newReview = new BookModel({title, review, rating});
-//   await newReview.save();
-
-//   res.status(201).json({ message: 'Review created successfully', review: newReview });
-// })
+  res.status(201).json({ message: 'Favoourite added successfully', Favourite: newFavourite});
+})
 
 //fetching all the book records 
   app.get('/api/books', async (req, res) => {
@@ -106,7 +114,6 @@ app.delete('/api/reviews/:id', async (req, res) => {
   res.status(200).send({ message: "Review deleted successfully", review });
   
 });
-
 
 //the server handling the edit request on review 
 app.put('/api/reviews/:id', async (req, res) => { //async = dont proceed until the next line until youve edited the record in the database 

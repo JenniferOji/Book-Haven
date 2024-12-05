@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import axios from "axios";
 //how all the movies are displayed
-const BookItem = (props) => {
+const FavouriteItems = (props) => {
 //displaying the items of the array 
 //using card is decorative and makes the page look better 
 const handleDelete = (e)=>{
@@ -25,7 +25,7 @@ const handleSubmit = (e) => {
         cover: props.myBook.cover
       };
     
-    axios.post('http://localhost:4000/api/favourites', book)
+    axios.post('http://localhost:4000/api/addFavourites', book)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.data));
   }
@@ -41,7 +41,7 @@ const handleSubmit = (e) => {
                             {props.myBook.description}
                         </p>
                     </div>
-                    <a className="btn btn-success" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "94%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to List</a>
+                    {/* <a className="btn btn-success" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "94%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to List</a> */}
                     {/* <a href="#"className="btn btn-danger"  onClick={handleDelete} style={{position: "absolute",left: 15,width: "94%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to List</a> */}
 
                 </div>
@@ -51,4 +51,4 @@ const handleSubmit = (e) => {
     )
 }
 
-export default BookItem;
+export default FavouriteItems;

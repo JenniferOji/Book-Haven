@@ -14,7 +14,7 @@ const stars = (rating) =>{
 
     switch(roundRating){
         case 0: return <img src="/images/rating0.png" alt="Review" height="40" style={{ marginTop: '-10px' }} />
-        case 0.5: return <img src="/images/rating0.5.5.png" alt="Review" height="40" style={{ marginTop: '-10px' }} />
+        case 0.5: return <img src="/images/rating0.5.png" alt="Review" height="40" style={{ marginTop: '-10px' }} />
 
         case 1: return <img src="/images/rating1.png" alt="Review" height="40" style={{ marginTop: '-10px' }} />
         case 1.5: return <img src="/images/rating1.5.png" alt="Review" height="40" style={{ marginTop: '-10px' }} />
