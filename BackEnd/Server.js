@@ -105,6 +105,13 @@ app.get('/api/books/:id', async (req, res) => {
   res.send(Books);
 });
 
+//retrieving a specfic by its id 
+app.get('/api/reviews/:id', async (req, res) => {
+  const review = await ReviewModel.findById(req.params.id);
+  res.send(review);
+});
+
+
 //when gettign a post to add a book 
 app.post('/api/books',(req, res)=>{
     console.log(req.body.title);
@@ -137,6 +144,14 @@ app.put('/api/reviews/:id', async (req, res) => { //async = dont proceed until t
   let review = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
   res.send(review);//send it back the new movie 
 });
+
+// //the server handling the edit request on review 
+// app.put('/api/editReview/:id', async (req, res) => { //async = dont proceed until the next line until youve edited the record in the database 
+//   //find the movie by its ID and update it 
+//   //pull the request out of the body and overright it 
+//   let review = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+//   res.send(review);//send it back the new movie 
+// });
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

@@ -31,13 +31,13 @@ const handleSubmit = (e) => {
   }
     return(
         <div className="col-12 mb-3">
-            <div className="card" style={{width:"98%", height: "13rem", marginLeft:15, marginTop:10}}>
+            <div className="card" style={{width:"98%", height: "14rem", marginLeft:15, marginTop:10}}>
                 <h5 className="card-header">{props.myFavourite.title}</h5> 
                 <div className="card-body d-flex ">
-                    <img src={props.myFavourite.cover}alt={props.myFavourite.title}height={170}width={100}style={{ paddingBottom: "35px" }}/>
+                    <img src={props.myFavourite.cover}alt={props.myFavourite.title}style={{ paddingBottom: "45px", height:190, width:120 }}/>
                     {/* this container displays the description of the book - theres a scroll wheel in order to view the full description */}
                     <div className="text-container"  style={{overflowY: "auto",flex: 1,position: "relative",}}>
-                        <p  style={{padding: 8,height: "240px",lineHeight: "1.2",}}>
+                        <p  style={{padding: 10,height: "240px",lineHeight: "1.2",}}>
                             {props.myFavourite.description}
                         </p>
                     </div>

@@ -12,7 +12,7 @@ export default function EditReview(props) {
     const [rating, setRating] = useState("");
     const navigate = useNavigate();
 
-//when this ocmponent becomes active it goes off and reads a review back by its id
+//when this component becomes active it goes off and reads a review back by its id
 useEffect(() => {
     axios.get('http://localhost:4000/api/reviews/' + id)
         .then((response) => {
