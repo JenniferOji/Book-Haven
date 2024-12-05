@@ -5,6 +5,8 @@ import NewReleases from './components/NewReleases';
 import ReviewPage from './components/ReviewPage';
 import NewReview from './components/NewReview';
 import EditReview from './components/EditReview';
+import FavouritesPage from './components/FavouritesPage';
+
 //using "/" to direct to the desired change 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/NewReleases" element={<NewReleases />} />
+        <Route path="/FavouritesPage" element={<FavouritesPage />} />
         <Route path="/ReviewPage" element={<ReviewPage/>} />
         <Route path="/NewReview" element={<NewReview/>} />
         <Route path="/EditReview/:id" element={<EditReview />}/>

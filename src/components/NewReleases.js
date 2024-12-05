@@ -3,6 +3,7 @@ import Books from "./Books";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const NewReleases = () => {
   //manages data in the class
   //useState returns the current state and the function to update it 
@@ -29,7 +30,8 @@ const NewReleases = () => {
 
     return (
     <div>
-       <Books myBooks={books} ReloadData={Reload} />
+      <a href="/FavouritesPage"><button className="btn btn-success" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> View List </button></a>
+      <Books myBooks={books} ReloadData={Reload} />
     </div>
     );
 };

@@ -91,6 +91,12 @@ app.get('/api/reviews', async (req, res) => {
   let Reviews = await ReviewModel.find({});
   res.json(Reviews);
 });
+
+//fetching all the favourited books records 
+app.get('/api/favourites', async (req, res) => {
+  let favourites = await FavouritesModel.find({});
+  res.json(favourites);
+});
     
 
 //retrieving a specfic by its id 
@@ -122,24 +128,6 @@ app.put('/api/reviews/:id', async (req, res) => { //async = dont proceed until t
   let review = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
   res.send(review);//send it back the new movie 
 });
-
-// app.get('/api/reviews', (req, res) => {
-//     const reviews = [
-//       {
-//         title: "The Symphony of Secrets",
-//         description: "Suspenseful story that keeps you reading, but the non-musical audience may become frustrated by all the musical notation references. The character of Josephine is a fascinating study of autistic synesthesia. I hope that the audio version includes the sounds of the notes she hears instead of just naming them. This story would translate well to film. But copy editors, please please catch common misspellings! (ad nauseum instead of ad nauseam).",
-//         rating: 4
-//       },
-//       {
-//         title: "Weyward",
-//         description: "I am mesmerized by this book! The vivid descriptions have left me with images and sounds that I don’t want to be without! Oh, how I would love to be at Weyward Cottage with the garden and the wildlife. The author seamlessly wove together three generations of women who had never met- it read so smoothly! There was a rhythm to the storytelling; it ebbed and flowed just as the beck. Oh, how I wish for a sequel. Emilia Hart is now on my list of favorite authors! Absolutely marvelous book!",
-//         rating: 5
-//       },
-//     ];
-    
-//       res.status(200).json({ reviews });
-//   });
-
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
