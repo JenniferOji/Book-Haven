@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Reviews from "./Reviews";
-import NewReview from "./NewReview";
-import { Button } from "bootstrap";
 
 const ReviewPage = () => {
   //manages data in the class
@@ -32,9 +30,6 @@ const ReviewPage = () => {
     <div>
       <a href="/newReview"><button className="btn btn-warning" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> Add Review</button></a>
       <Reviews myReviews={reviews} ReloadData={Reload} />
-      {/* <div id="here">
-      <NewReview ></NewReview>
-      </div> */}
     </div>
     );
 };

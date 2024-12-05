@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 //useParams
 export default function EditReview(props) {
@@ -38,33 +39,51 @@ const handleSubmit = (event) => {
 
 //on the handl sumbit event it re submits the update movie information 
 return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label>Book Title: </label>
-                <input type="text" 
-                className="form-control" 
-                value={title} 
-                onChange={(e) => setTitle(e.target.value)} />
-            </div>
-            <div className="form-group">
-                <label>Review: </label>
-                <input type="text" 
-                className="form-control" 
-                value={review} 
-                onChange={(e) => setReview(e.target.value)} />
-            </div>
-            <div className="form-group">
-                <label>Rating: </label>
-                <input type="text" 
-                className="form-control" 
-                value={rating} 
-                onChange={(e) => setRating(e.target.value)} />
-            </div>
-            <div className="form-group">
-                <input type="submit" value="Edit Movie" className="btn btn-primary" />
-            </div>
-        </form>
+    //https://stackoverflow.com/questions/42125775/reactjs-react-router-how-to-center-div
+    <div style={{display: "flex", justifyContent: "center", height:"100vh", alignItems: "center"}}>
+        <Card style={{width: "60%", height:"70%", justifyContent: "center", alignItems: "center"}}>
+            <form style={{width:"80%"}}>
+                <div className="form-group">
+                    <div>
+                        <label>Add Book Title: </label>
+                            <input type="text"
+                                //styling from bootstrap
+                                className="form-control"
+                                // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
+                                value={title}
+                                onChange={(e) => { setTitle(e.target.value) }}
+                            />
+                        </div>
+                    </div>
+                <div>
+                    <label></label>
+                </div>
+                    <div>
+                        <label>Add Book Review: </label>
+                            {/* textarea allows you to apply multi line input, im using it for the review box to give the user better visibility of what theyre typing*/}
+                            <textarea type="text" style={{resize: "none", overflow: "auto", height:150}}
+                                className="form-control"
+                                value={review}
+                                onChange={(e) => { setReview(e.target.value) }}
+                            />
+                        </div>
+                    <div>
+                        <label></label>
+                    </div>
+                        <div>
+                            <label>Add rating: </label>
+                            <input type="text"
+                                className="form-control"
+                                value={rating}
+                                onChange={(e) => { setRating(e.target.value) }}
+                            />
+                        </div>
+                    <div>
+                        <label></label>
+                    </div>
+                <button className="btn btn-warning" onClick={handleSubmit}>Edit Review</button>
+            </form>
+        </Card>
     </div>
 );
 }
