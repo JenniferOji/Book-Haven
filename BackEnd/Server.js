@@ -121,6 +121,15 @@ app.delete('/api/reviews/:id', async (req, res) => {
   
 });
 
+//the server handling the delete request on a favourited book 
+app.delete('/api/favourites/:id', async (req, res) => {
+  
+  console.log('Deleting favourited book with ID:', req.params.id);
+  //deleting the book by the ID
+  const favourite = await FavouritesModel.findByIdAndDelete(req.params.id);
+  res.status(200).send({ message: "Favourited book deleted successfully", favourite });
+  
+});
 //the server handling the edit request on review 
 app.put('/api/reviews/:id', async (req, res) => { //async = dont proceed until the next line until youve edited the record in the database 
   //find the movie by its ID and update it 

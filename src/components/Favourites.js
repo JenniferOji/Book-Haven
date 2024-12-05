@@ -3,15 +3,13 @@ import FavouriteItems from "./FavouriteItems";
 const Favourites = (props) => {
     return (
         //returning as a div to to display the cards correctly 
-        <div className="row">
-            {props.myFavourites.map((favourite) => (
+            props.myFavourites.map((favourite) => (
                 <FavouriteItems
                     key={favourite._id}
                     myFavourite={favourite}
                     Reload={props.ReloadData}
                 />
-            ))}
-        </div>
+            ))
     );
 };
 

@@ -6,7 +6,7 @@ const FavouriteItems = (props) => {
 //using card is decorative and makes the page look better 
 const handleDelete = (e)=>{
     e.preventDefault();
-    axios.delete('http://localhost:4000/api/books/' + props.myFavourite._id)
+    axios.delete('http://localhost:4000/api/favourites/' + props.myFavourite._id)
         .then(() => {
             props.Reload(); //refreshing the book list after deletion
         })
@@ -30,19 +30,19 @@ const handleSubmit = (e) => {
       .catch((err) => console.log(err.data));
   }
     return(
-        <div className="col-4 mb-3">
-            <div className="card" style={{ width: "26rem", height: "20rem", marginLeft:40, marginTop:10}}>
+        <div className="col-12 mb-3">
+            <div className="card" style={{width:"98%", height: "13rem", marginLeft:15, marginTop:10}}>
                 <h5 className="card-header">{props.myFavourite.title}</h5> 
-                <div className="card-body d-flex align-items-center">
-                    <img src={props.myFavourite.cover}alt={props.myFavourite.title}height={250}width={150}style={{ paddingBottom: "35px" }}/>
+                <div className="card-body d-flex ">
+                    <img src={props.myFavourite.cover}alt={props.myFavourite.title}height={170}width={100}style={{ paddingBottom: "35px" }}/>
                     {/* this container displays the description of the book - theres a scroll wheel in order to view the full description */}
-                    <div className="text-container"  style={{overflowY: "scroll",flex: 1,position: "relative",}}>
+                    <div className="text-container"  style={{overflowY: "auto",flex: 1,position: "relative",}}>
                         <p  style={{padding: 8,height: "240px",lineHeight: "1.2",}}>
                             {props.myFavourite.description}
                         </p>
                     </div>
-                    {/* <a className="btn btn-success" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "94%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to List</a> */}
-                    {/* <a href="#"className="btn btn-danger"  onClick={handleDelete} style={{position: "absolute",left: 15,width: "94%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to List</a> */}
+                    <a href="NewReview" className="btn btn-warning" style={{position: "absolute",right: 260,width: "15%",bottom: 6,height: "30px",lineHeight: "10px", marginBottom:10}}>Leave Review</a>
+                    <a className="btn btn-danger" onClick={handleDelete} style={{position: "absolute",right:30,width: "15%",bottom: 6,height: "30px",lineHeight: "10px", marginBottom:10}}>Remove from list</a>
 
                 </div>
             </div>
