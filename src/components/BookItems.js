@@ -31,7 +31,7 @@ const handleSubmit = (e) => {
                             {props.myBook.description}
                         </p>
                     </div>
-                    <a className="btn btn-success" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "34%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to List</a>
+                    <a className="btn btn-success" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "34%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to Favourites</a>
                 </div>
             </div>
         </div>

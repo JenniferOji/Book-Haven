@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 
 const mongoose = require('mongoose');
 //connecting to mongoose database with my connection string  
@@ -25,7 +25,8 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
   const bookSchema = new mongoose.Schema({
       title: String,
       description: String,
-      cover: String
+      cover: String,
+      genre: String
   });
 
   //the schema that holds the reviews that are displayed on the reviewpage
@@ -45,7 +46,6 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
   const BookModel = mongoose.model('Book', bookSchema);
   const ReviewModel = mongoose.model('Review', reviewSchema);
   const FavouritesModel = mongoose.model('Favourite', favouritesSchema);
-
 
 //adding the books onto the books page 
 app.post('/api/books', async (req, res)=>{
@@ -84,6 +84,23 @@ app.post('/api/favourites', async (req, res)=>{
   res.json(Books);
 });
 
+//when there is a request in this url it fetches the book by genre instead of id
+app.get('/api/books/genre/:genre', async (req, res) => {
+  //pulling the genre out of the request body - genre is based up as value like 'romance'
+  const genre = req.params.genre;
+  let books;
+    //if the genre is equal to all books it just returns all boooks
+    if (genre == 'allBooks') 
+    {
+      books = await BookModel.find({});
+    } 
+    else //otherwise it finds the book based on the genre from the request body and comapres it agaisnt the genre parameter in the model 
+    {
+      books = await BookModel.find({ genre });
+    }
+    res.json(books);
+});
+
 //fetching all the review records 
 app.get('/api/reviews', async (req, res) => {
   let Reviews = await ReviewModel.find({});
@@ -96,7 +113,6 @@ app.get('/api/favourites', async (req, res) => {
   res.json(favourites);
 });
     
-
 //retrieving a specfic book by its id 
 app.get('/api/books/:id', async (req, res) => {
   const Books = await BookModel.findById(req.params.id);
@@ -108,7 +124,6 @@ app.get('/api/reviews/:id', async (req, res) => {
   const review = await ReviewModel.findById(req.params.id);
   res.send(review);
 });
-
 
 //the server handling the delete request on a review 
 app.delete('/api/reviews/:id', async (req, res) => {
@@ -138,13 +153,6 @@ app.put('/api/reviews/:id', async (req, res) => { //async = dont proceed until t
   res.send(review);//send it back the new movie 
 });
 
-// //the server handling the edit request on review 
-// app.put('/api/editReview/:id', async (req, res) => { //async = dont proceed until the next line until youve edited the record in the database 
-//   //find the movie by its ID and update it 
-//   //pull the request out of the body and overright it 
-//   let review = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-//   res.send(review);//send it back the new movie 
-// });
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

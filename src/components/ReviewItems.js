@@ -90,8 +90,7 @@ const handleSubmit = (e) => {
                 <div className="card" style={{ height: "12rem", marginLeft:15, marginRight: 15, marginTop:5}}>
                     <h5 className="card-header">Rating : {props.myReview.rating}</h5> 
                     <div className="card-body d-flex align-items-center">
-                    <div className="text-container d-flex justify-content-center" style={{ flex: 1 }}>
-                    {/* {props.myReview.rating} */}
+                        <div className="text-container d-flex justify-content-center" style={{ flex: 1 }}>
                                 {stars(props.myReview.rating)}
                         </div>
                     </div>

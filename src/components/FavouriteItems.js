@@ -1,5 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import axios from "axios";
+import Popup from 'reactjs-popup';
+
 //how all the movies are displayed
 const FavouriteItems = (props) => {
 //displaying the items of the array 
