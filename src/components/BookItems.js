@@ -1,20 +1,20 @@
 import Card from 'react-bootstrap/Card';
 import axios from "axios";
-//how all the movies are displayed
+//how all the books are displayed
 const BookItem = (props) => {
-//displaying the items of the array 
-//using card is decorative and makes the page look better 
 
-//handles what happens to what been submitted
 const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     const book = {
         title: props.myBook.title,
         description: props.myBook.description,
         cover: props.myBook.cover
       };
     
+    //alerting the user that the add was successful 
+    alert("Book successfully added to Favourites List !")
+ 
     axios.post('http://localhost:4000/api/favourites', book)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.data));
@@ -31,7 +31,8 @@ const handleSubmit = (e) => {
                             {props.myBook.description}
                         </p>
                     </div>
-                    <a className="btn btn-success" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "34%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to Favourites</a>
+                    <a className="btn btn-success" onClick={handleSubmit} style={{position: "absolute",left: 15,width: "34%",bottom: 6,height: "30px",lineHeight: "10px",}}>Add to Favourites
+                    </a>
                 </div>
             </div>
         </div>

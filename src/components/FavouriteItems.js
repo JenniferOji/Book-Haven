@@ -1,11 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import axios from "axios";
-import Popup from 'reactjs-popup';
 
-//how all the movies are displayed
 const FavouriteItems = (props) => {
 //displaying the items of the array 
-//using card is decorative and makes the page look better 
 const handleDelete = (e)=>{
     e.preventDefault();
     axios.delete('http://localhost:4000/api/favourites/' + props.myFavourite._id)
@@ -17,20 +14,6 @@ const handleDelete = (e)=>{
         });
 };
 
-//handles what happens to what been submitted
-const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const favourite = {
-        title: props.myFavourite.title,
-        description: props.myFavourite.description,
-        cover: props.myFavourite.cover
-      };
-    
-    axios.post('http://localhost:4000/api/favourites', favourite)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err.data));
-  }
     return(
         <div className="col-12 mb-3">
             <div className="card" style={{width:"98%", height: "14rem", marginLeft:15, marginTop:10}}>
@@ -40,16 +23,14 @@ const handleSubmit = (e) => {
                     {/* this container displays the description of the book - theres a scroll wheel in order to view the full description */}
                     <div className="text-container"  style={{overflowY: "auto",flex: 1,position: "relative",}}>
                         <p  style={{padding: 10,height: "240px",lineHeight: "1.2",}}>
-                            {props.myFavourite.description}
+                                {props.myFavourite.description}
                         </p>
                     </div>
-                    <a href="NewReview" className="btn btn-warning" style={{position: "absolute",right: 260,width: "15%",bottom: 6,height: "30px",lineHeight: "10px", marginBottom:10}}>Leave Review</a>
+                    <a href="NewReview" className="btn btn-warning" style={{position: "absolute",right: 300,width: "15%",bottom: 6,height: "30px",lineHeight: "10px", marginBottom:10}}>Leave Review</a>
                     <a className="btn btn-danger" onClick={handleDelete} style={{position: "absolute",right:30,width: "15%",bottom: 6,height: "30px",lineHeight: "10px", marginBottom:10}}>Remove from list</a>
-
                 </div>
             </div>
         </div>
-
     )
 }
 

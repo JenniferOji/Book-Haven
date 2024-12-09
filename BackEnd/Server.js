@@ -48,18 +48,8 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
   const ReviewModel = mongoose.model('Review', reviewSchema);
   const FavouritesModel = mongoose.model('Favourite', favouritesSchema);
 
-//adding the books onto the books page 
-app.post('/api/books', async (req, res)=>{
-  const { title, description, cover } = req.body;
-  //variables being pulled out of request 
-  //putting it into the bookmodel database 
-  const newBook = new BookModel({ title, description, cover });
-  await newBook.save();
- 
-  res.status(201).json({ message: 'Book created successfully', Book: newBook});
-})
 
-//adding the newly made review nonto the reviews page 
+//adding the newly made review onto the reviews page 
 app.post('/api/reviews', async (req, res)=>{
   console.log("Book review title: " +req.body.title);
   const { title, review, rating, time } = req.body;
@@ -97,7 +87,7 @@ app.get('/api/books/genre/:genre', async (req, res) => {
     } 
     else //otherwise it finds the book based on the genre from the request body and comapres it agaisnt the genre parameter in the model 
     {
-      books = await BookModel.find({ genre });
+      books = await BookModel.find({genre});
     }
     res.json(books);
 });

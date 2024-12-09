@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
-//useParams
 export default function EditReview(props) {
     const { id } = useParams();
     const [title, setTitle] = useState("");
@@ -29,6 +28,9 @@ useEffect(() => {
 //an event that handles what happens when the button is clicked 
 const handleSubmit = (event) => {
     event.preventDefault();
+
+    alert("Review successfully updated!")
+
     const time = new Date().toLocaleString()//adding the time and date as part of the review 
     const updatedReview = { id, title, review, rating, time };
     axios.put('http://localhost:4000/api/reviews/' + id, updatedReview)
@@ -38,10 +40,14 @@ const handleSubmit = (event) => {
         });
 }
 
-//on the handl sumbit event it re submits the update movie information 
+//on the handle sumbit event it re-submits the update review information 
 return (
     //https://stackoverflow.com/questions/42125775/reactjs-react-router-how-to-center-div
-    <div style={{display: "flex", justifyContent: "center", height:"100vh", alignItems: "center"}}>
+    <div>
+    <a href="/ReviewPage"><button className="btn btn-info" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> See Your Reviews </button></a>
+    <img src="/images/bookLogo.png" style={{height: 70, width: "15%", marginTop: "10px", marginLeft:15, }}></img>
+   
+   <div style={{display: "flex", justifyContent: "center", height:"80vh", alignItems: "center"}}>
         <Card style={{width: "60%", height:"70%", justifyContent: "center", alignItems: "center"}}>
             <form style={{width:"80%"}}>
                 <div className="form-group">
@@ -82,9 +88,10 @@ return (
                     <div>
                         <label></label>
                     </div>
-                <button className="btn btn-warning" onClick={handleSubmit}>Edit Review</button>
+                <button className="btn btn-info" style={{width:"100%"}} onClick={handleSubmit}>Edit Review</button>
             </form>
         </Card>
+    </div>
     </div>
 );
 }

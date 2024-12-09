@@ -3,7 +3,7 @@ import BookItem from "./BookItems";
 //for every object in the array it outputs this function 
 const Books = (props) => {
     return (
-        //returning as a div to to display the cards correctly 
+        //returning as a div to to display the cards side by side
         <div className="row">
             {props.myBooks.map((book) => (
                 <BookItem

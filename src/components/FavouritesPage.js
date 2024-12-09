@@ -10,12 +10,11 @@ const FavouritesPage = () => {
   //useState returns the current state and the function to update it 
   const [favourite,setFavouriteBooks] = useState([]);
   
-  //defines and manages the Reload function, which fetches updated movie data from the server and updates the state
-  
+  //defines and manages the Reload function which fetches updated books data from the server and updates the state
   const Reload = () => {
     axios.get('http://localhost:4000/api/favourites')
       .then((response) => {
-        console.log("Books fetched:", response.data); // Debug log
+        console.log("Books fetched:", response.data); 
         setFavouriteBooks(response.data);
       })
       .catch((error) => {
@@ -24,13 +23,15 @@ const FavouritesPage = () => {
   };
     
   useEffect(() => {
-    console.log("Reloading data...");
+    //reloading the data
     Reload();
   }, []);
 
     return (
     <div>
       <a href="/NewReleases"><button className="btn btn-primary" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> See More Books </button></a>
+      <img src="/images/bookLogo.png" style={{height: 70, width: "15%", marginTop: 5, marginLeft:15}}></img>
+      {/* fetching the favourited books and reloading the book data */}
       <Favourites myFavourites={favourite} ReloadData={Reload} />
     </div>
     );
