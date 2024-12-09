@@ -29,7 +29,8 @@ useEffect(() => {
 //an event that handles what happens when the button is clicked 
 const handleSubmit = (event) => {
     event.preventDefault();
-    const updatedReview = { id, title, review, rating };
+    const time = new Date().toLocaleString()//adding the time and date as part of the review 
+    const updatedReview = { id, title, review, rating, time };
     axios.put('http://localhost:4000/api/reviews/' + id, updatedReview)
         .then((res) => {
             console.log(res.data);

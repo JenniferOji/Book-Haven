@@ -73,15 +73,16 @@ const handleSubmit = (e) => {
                             <p  style={{padding: 8,height: "240px",lineHeight: "1.2",}}>
                                 {props.myReview.review}
                             </p>
+                            <div>
+                            </div>
                         </div>
-    
-                        {/* <Link className="btn btn-primary"  style={{position: "absolute",left: 15,width: "10%",bottom: 6,height: "30px",lineHeight: "10px"}} to={"/EditReview/" +props.myReview._id }>Edit</Link> */}
-                        {/* <a className="btn btn-primary"  style={{position: "absolute",left: 150,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}} to={"/editReview/" +props.myReview._id}>Edit</a> */}
-                        {/* <Link className="btn btn-primary" to={"/edit/" +props.myMovie._id}>Edit</Link> */}
-
                         <Link className="btn btn-primary"  to={"/EditReview/" +props.myReview._id} style={{position: "absolute",left: 15,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Edit</Link>
-                        <a className="btn btn-danger" onClick={handleDelete} style={{position: "absolute",left: 150,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Delete</a>
-
+                        <a className="btn btn-danger" onClick={handleDelete} style={{position: "absolute",left: 165,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Delete</a>
+                        <div style={{ position: "absolute", bottom: 6, right: 15 }}>
+                            <p style={{ margin: 0, color: "gray" }}>
+                                last updated on: {props.myReview.time}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

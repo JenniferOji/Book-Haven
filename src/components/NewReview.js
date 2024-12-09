@@ -12,13 +12,14 @@ function NewReview() {
   //handles what happens to what been submitted
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    
     console.log(`Title: ${Title}, Review: ${Review}, Rating: ${Rating}`);
     
     const review = {
       title: Title,
       review: Review,
-      rating: Rating
+      rating: Rating,
+      time: new Date().toLocaleString()//adding the time and date as part of the review 
     };
     
     //posting the new review onto the review page to handle it

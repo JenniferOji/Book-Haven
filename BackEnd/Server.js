@@ -33,7 +33,8 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
   const reviewSchema = new mongoose.Schema({
       title: String,
       review: String,
-      rating: String
+      rating: String,
+      time: String
   });
 
   const favouritesSchema = new mongoose.Schema({
@@ -58,11 +59,11 @@ app.post('/api/books', async (req, res)=>{
   res.status(201).json({ message: 'Book created successfully', Book: newBook});
 })
 
-//adding the newly made review onto the reviews page 
+//adding the newly made review nonto the reviews page 
 app.post('/api/reviews', async (req, res)=>{
   console.log("Book review title: " +req.body.title);
-  const { title, review, rating } = req.body;
-  const newReview = new ReviewModel({ title, review, rating});
+  const { title, review, rating, time } = req.body;
+  const newReview = new ReviewModel({ title, review, rating, time});
   await newReview.save();
 
   res.status(201).json({ message: 'Review created successfully', Review: newReview});
