@@ -5,11 +5,8 @@ This app serves as your ultimate book sanctuaray. Your personalized haven for di
 ## Features
 
 - **Discover New Books:** Explore the latest newly released books
-- 
 - **Filter Between Genres:** Choose which genres you wish to see on screen 
-- 
 - **Favourites List:** Add books to your favourites list to keep track of all the exciting books you wish to read !
-  
 - **Leave your reviews:** Keep track of all your thoughts, opinions and ratings on books you're read over the years
 
 
