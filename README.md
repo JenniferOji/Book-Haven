@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Book Haven App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app serves as your ultimate book sanctuaray. Your personalized haven for discovering, tracking, and reviewing books.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Discover New Books:** Explore the latest newly released books
+- 
+- **Filter Between Genres:** Choose which genres you wish to see on screen 
+- 
+- **Favourites List:** Add books to your favourites list to keep track of all the exciting books you wish to read !
+  
+- **Leave your reviews:** Keep track of all your thoughts, opinions and ratings on books you're read over the years
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To run the app, follow these steps:
+1. **Clone the Repository:** git clone https://github.com/JenniferOji/Book-Haven.git
+2. **Navigate to project directory:** cd Book-Haven
+3. **Open Visual Studio Code:** code .
+4. **Install dependencies:** npm install
+5. **Run command:** npm start
+6. **Open Server** navigate to the BackEnd folder in VS code, open it, right click on server.js - select open in intergrated terminal
+7. **Run Server** in the intergrated terminal type node server.js
+8. **Wait for browser to open:** or search "http://localhost:3000/" on any brower 
