@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand >Book Haven</Navbar.Brand>
+            <Navbar.Brand href="../App" >Book Haven</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/NewReleases">New Release</Nav.Link>
               <Nav.Link href="/FavouritesPage">My Favourites</Nav.Link>
