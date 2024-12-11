@@ -37,6 +37,7 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
       time: String
   });
 
+  //the schema that holds the favourited books 
   const favouritesSchema = new mongoose.Schema({
       title: String,
       description: String,
@@ -47,7 +48,7 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.sqwxk.mongodb.net/MyBooksDB
   const BookModel = mongoose.model('Book', bookSchema);
   const ReviewModel = mongoose.model('Review', reviewSchema);
   const FavouritesModel = mongoose.model('Favourite', favouritesSchema);
-
+  
 
 //adding the newly made review onto the reviews page 
 app.post('/api/reviews', async (req, res)=>{

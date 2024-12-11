@@ -8,9 +8,9 @@ function NewReview() {
     const { id } = useParams();
     //created a state variavle and a method to update it
     //the initial value of title will be an empty string
-    const [Title, setTitle] = useState('');
+    const [Title, setTitle] = useState('Untitled');
     const [Review, setReview] = useState('');
-    const [Rating, setRating] = useState('');
+    const [Rating, setRating] = useState('0');
     //when this component becomes active it goes off and reads a favourited book back by its id
     useEffect(() => {
         axios.get('http://localhost:4000/api/favourites/' + id)

@@ -10,8 +10,7 @@ function HomePage(){
                     <p>Explore new books to read</p>
                 </div>
                 <div style={{width:"50%"}}>
-                    <img src="/images/favourites.png" style={{ width: "85%" , height:"70%", marginTop:30}} alt="Favorites" />
-                    <p></p>
+                    <img src="/images/favouritess.png" style={{ width: "87%" , height:"75%", marginTop:25}} alt="Favorites" />
                     <h3>Favourites</h3>
                     <p>Save books to your favourites list</p>
                 </div>
