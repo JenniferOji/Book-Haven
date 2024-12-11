@@ -116,6 +116,24 @@ app.get('/api/reviews/:id', async (req, res) => {
   res.send(review);
 });
 
+// //retrieving a specfic favourited book by its id 
+app.get('/api/favourites/:id', async (req, res) => {
+  //since the newReview page calls gets this api; if there are no favourites it returns an error 
+  try{
+    //seraching the databse for the book in the favourites collections
+    const favourite = await FavouritesModel.findById(req.params.id);
+    if (!favourite){
+      console.log("No favourited book")
+    }
+    //if the book exists it returns it
+    else{
+     res.send(favourite);
+    }
+  } catch (error) {
+    console.log("No favourited book")
+  }
+});
+
 //the server handling the delete request on a review 
 app.delete('/api/reviews/:id', async (req, res) => {
   

@@ -48,7 +48,6 @@ const NewReleases = () => {
 
     return (
     <div>
-      <a href="/FavouritesPage"><button className="btn btn-success" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> View Favourites</button></a>
       <img src="/images/bookLogo.png" style={{height: 70, width: "15%", marginTop: 5, marginLeft:15}}></img>
       {/* https://www.simplilearn.com/tutorials/reactjs-tutorial/how-to-create-functional-react-dropdown-menu */}
       <div style={{marginLeft: "40%", marginTop:10, fontSize: "22px",  fontWeight: "bold", fontFamily:"Helvetica"}}>

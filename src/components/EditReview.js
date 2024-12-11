@@ -44,54 +44,52 @@ const handleSubmit = (event) => {
 return (
     //https://stackoverflow.com/questions/42125775/reactjs-react-router-how-to-center-div
     <div>
-    <a href="/ReviewPage"><button className="btn btn-info" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> See Your Reviews </button></a>
     <img src="/images/bookLogo.png" style={{height: 70, width: "15%", marginTop: "10px", marginLeft:15, }}></img>
-   
-   <div style={{display: "flex", justifyContent: "center", height:"80vh", alignItems: "center"}}>
-        <Card style={{width: "60%", height:"70%", justifyContent: "center", alignItems: "center"}}>
-            <form style={{width:"80%"}}>
-                <div className="form-group">
-                    <div>
-                        <label>Add Book Title: </label>
-                            <input type="text"
-                                //styling from bootstrap
-                                className="form-control"
-                                // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
-                                value={title}
-                                onChange={(e) => { setTitle(e.target.value) }}
-                            />
-                        </div>
-                    </div>
-                <div>
-                    <label></label>
-                </div>
-                    <div>
-                        <label>Add Book Review: </label>
-                            {/* textarea allows you to apply multi line input, im using it for the review box to give the user better visibility of what theyre typing*/}
-                            <textarea type="text" style={{resize: "none", overflow: "auto", height:150}}
-                                className="form-control"
-                                value={review}
-                                onChange={(e) => { setReview(e.target.value) }}
-                            />
+    <div style={{display: "flex", justifyContent: "center", height:"80vh", alignItems: "center"}}>
+            <Card style={{width: "60%", height:"90%", justifyContent: "center", alignItems: "center", backgroundColor: "#8fbc8f", boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)"}}>
+                <form style={{width:"80%"}}>
+                    <div className="form-group">
+                        <div>
+                            <label style={{ fontSize: "20px", fontWeight: "bold" }}>Update Book Title:</label>
+                                <input type="text"
+                                    //styling from bootstrap
+                                    className="form-control"
+                                    // value is set to title and when theres change it executes the arrow function and passes in the value of the aria-controls=""
+                                    value={title}
+                                    onChange={(e) => { setTitle(e.target.value) }}
+                                />
+                            </div>
                         </div>
                     <div>
                         <label></label>
                     </div>
                         <div>
-                            <label>Add rating: </label>
-                            <input type="text"
-                                className="form-control"
-                                value={rating}
-                                onChange={(e) => { setRating(e.target.value) }}
-                            />
+                            <label style={{ fontSize: "20px", fontWeight: "bold"}}>Update Book Review: </label>
+                                {/* textarea allows you to apply multi line input, im using it for the review box to give the user better visibility of what theyre typing*/}
+                                <textarea type="text" style={{resize: "none", overflow: "auto", height:150}}
+                                    className="form-control"
+                                    value={review}
+                                    onChange={(e) => { setReview(e.target.value) }}
+                                />
+                            </div>
+                        <div>
+                            <label></label>
                         </div>
-                    <div>
-                        <label></label>
-                    </div>
-                <button className="btn btn-info" style={{width:"100%"}} onClick={handleSubmit}>Edit Review</button>
-            </form>
-        </Card>
-    </div>
+                            <div>
+                            <label style={{ fontSize: "20px", fontWeight: "bold" }}>Update rating: </label>
+                                <input type="text"
+                                    className="form-control"
+                                    value={rating}
+                                    onChange={(e) => { setRating(e.target.value) }}
+                                />
+                            </div>
+                        <div>
+                            <label></label>
+                        </div>
+                    <button className="btn btn" style={{width:"100%", backgroundColor:"#228b22", boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)"}} onClick={handleSubmit}><label style={{ fontSize: "18px", fontWeight: "normal" }}>Update Review</label></button>
+                </form>
+            </Card>
+        </div>
     </div>
 );
 }

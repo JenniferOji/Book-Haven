@@ -28,7 +28,6 @@ const ReviewPage = () => {
 
     return (
     <div>
-      <a href="/newReview"><button className="btn btn-warning" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> Add Review</button></a>
       <img src="/images/bookLogo.png" style={{height: 70, width: "15%", marginTop: 5, marginLeft:15}}></img>
       {/* fetching the reviews and reloads the review data */}
       <Reviews myReviews={reviews} ReloadData={Reload} />

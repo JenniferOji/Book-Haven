@@ -5,12 +5,12 @@ function HomePage(){
         <p>Discover your next great read, share your thoughts, add to list. Your book needs, all in one spot</p>
             <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
                 <div style={{width:"30%"}}>
-                    <img src="/images/book2.png" style={{ width: "70%", height:"80%"}} alt="Discover Books" />
+                    <img src="/images/books.png" style={{ width: "70%", height:"80%"}} alt="Discover Books" />
                     <h3>Discover</h3>
                     <p>Explore new books to read</p>
                 </div>
                 <div style={{width:"50%"}}>
-                    <img src="/images/favourites2.png" style={{ width: "85%" , height:"70%", marginTop:30}} alt="Favorites" />
+                    <img src="/images/favourites.png" style={{ width: "85%" , height:"70%", marginTop:30}} alt="Favorites" />
                     <p></p>
                     <h3>Favourites</h3>
                     <p>Save books to your favourites list</p>

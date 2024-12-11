@@ -7,7 +7,6 @@ const ReviewItems = (props) => {
 
 //what will be output in the rating section 
 const stars = (rating) =>{
-
     //rounding to the nearest .5 for a more accurate rating 
     //https://stackoverflow.com/questions/72727340/how-do-i-round-to-the-nearest-0-5
     const roundRating = Math.round(parseFloat(rating) * 2.0) / 2.0;
@@ -30,6 +29,8 @@ const stars = (rating) =>{
 
         case 5: return <img src="/images/rating5.png" alt="Review" height="40" style={{ marginTop: '-20px' }} />
 
+        default: return <img src="/images/rating0.png" alt="Review" height="40" style={{ marginTop: '-10px' }} />
+
     }
 }
 
@@ -40,6 +41,7 @@ const handleDelete = (e)=>{
     axios.delete('http://localhost:4000/api/reviews/' + props.myReview._id)
         .then(() => {
             props.Reload(); //refreshing the review list after deletion
+            alert("Review successfully deleted !")
         })
         .catch((error) => {
             console.error("Error deleting movie:", error);
@@ -48,21 +50,23 @@ const handleDelete = (e)=>{
 
     return(
         //allows the two divs to be displayed in the same row 
+        <div className="d-flex justify-content-center">
+        <div style={{ width: "85%" }}>
         <div className="d-flex flex-row justify-content-start align-items">
-            <div className="col-10 mb-3">
-                <div className="card" style={{ height: "12rem", marginLeft:15, marginTop:5}}>
+            <div className="col-9 mb-3">
+                <div className="card" style={{ height: "14rem", marginLeft:15, marginTop:5}}>
                     <h5 className="card-header">{props.myReview.title}</h5> 
                     <div className="card-body d-flex align-items-center">
                     {/* this container displays the description of the book - theres a scroll wheel in order to view the full description */}
                         <div className="text-container"  style={{overflowY: "auto",flex: 1,position: "relative"}}>
-                            <p  style={{padding: 8,height: "240px",lineHeight: "1.2",}}>
+                            <p  style={{padding: 8,height: "240px",lineHeight: "1.2"}}>
                                 {props.myReview.review}
                             </p>
                             <div>
                             </div>
                         </div>
-                        <Link className="btn btn-primary"  to={"/EditReview/" +props.myReview._id} style={{position: "absolute",left: 15,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Edit</Link>
-                        <a className="btn btn-danger" onClick={handleDelete} style={{position: "absolute",left: 165,width: "10%",bottom: 6,height: "30px",lineHeight: "10px",}}>Delete</a>
+                        <Link className="btn btn-primary"  to={"/EditReview/" +props.myReview._id} style={{position: "absolute",left: 15,width: "13%",bottom: 6,height: "25px",lineHeight: "10px",}}>Edit</Link>
+                        <a className="btn btn-danger" onClick={handleDelete} style={{position: "absolute",left: 165,width: "13%",bottom: 6,height: "25px",lineHeight: "10px",}}>Delete</a>
                         <div style={{ position: "absolute", bottom: 6, right: 15 }}>
                             <p style={{ margin: 0, color: "gray" }}> last updated on: {props.myReview.time}</p>
                         </div>
@@ -70,8 +74,8 @@ const handleDelete = (e)=>{
                 </div>
             </div>
 
-            <div className="col-2 mb-3">
-                <div className="card" style={{ height: "12rem", marginLeft:15, marginRight: 15, marginTop:5}}>
+            <div className="col-3 mb-3">
+                <div className="card" style={{ height: "14rem", marginLeft:15, marginRight: 15, marginTop:5}}>
                     <h5 className="card-header">Rating : {props.myReview.rating}</h5> 
                     <div className="card-body d-flex align-items-center">
                         <div className="text-container d-flex justify-content-center" style={{ flex: 1 }}>
@@ -81,6 +85,7 @@ const handleDelete = (e)=>{
                 </div>
             </div>
         </div>
+        </div></div>
     )
 }
 

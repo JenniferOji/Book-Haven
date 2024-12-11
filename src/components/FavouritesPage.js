@@ -29,7 +29,6 @@ const FavouritesPage = () => {
 
     return (
     <div>
-      <a href="/NewReleases"><button className="btn btn-primary" style={{height: 45, width: "98%", marginTop: 5, marginLeft:15}}> See More Books </button></a>
       <img src="/images/bookLogo.png" style={{height: 70, width: "15%", marginTop: 5, marginLeft:15}}></img>
       {/* fetching the favourited books and reloading the book data */}
       <Favourites myFavourites={favourite} ReloadData={Reload} />
