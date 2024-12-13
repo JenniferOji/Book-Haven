@@ -11,12 +11,13 @@ This app serves as your ultimate book sanctuaray. Your personalized haven for di
 
 ## Getting Started
 
-To run the app, follow these steps:
+To run the app, follow these steps in the command prompt:
+1. **Create a folder:**  Highlight the file path and type cmd
 1. **Clone the Repository:**  git clone https://github.com/JenniferOji/Book-Haven.git
 2. **Navigate to project directory:**  cd Book-Haven
-3. **Open Visual Studio Code:**  code .
 4. **Install dependencies:**  npm install
-5. **Run command:**  npm start
-6. **Open Server:**  navigate to the BackEnd folder in VS code, open it, right click on server.js - select open in intergrated terminal
-7. **Run Server:**  in the intergrated terminal type node server.js
+5. **Open server:**  open **another** command prompt in the 'BackEnd' folder of the project 
+4. **Run server:**  node server.js (nodemon if on VM)
+5. **Go back to first command prompt** 
+6. **Run command:**  npm start
 8. **Wait for browser to open:** or search "http://localhost:3000/" on any brower 
